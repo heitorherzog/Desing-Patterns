@@ -4,32 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-class CurrentConditionDisplay:Observer, DisplayElement
+namespace Observer_Pattern
 {
-    private float temperature;
-    private float humidity;
-    private float pressure;
-    private Subject weatherData;
-
-    public CurrentConditionDisplay(Subject weatherData )
+    public class CurrentConditionDisplay : Observer, DisplayElement
     {
-        this.weatherData = weatherData;
-        weatherData.RegisterObserver(this);
-    }
+        private float temperature;
+        private float humidity;
+        private float pressure;
+        private Subject WeatherData;
 
-    public void Display( )
-    {
-        Console.WriteLine("Current conditions "
-            + temperature + "F degrees and "
-            + humidity + " % humidity");
-    }
+        public CurrentConditionDisplay( Subject WeatherData )
+        {
+            this.WeatherData = WeatherData;
+            WeatherData.RegisterObserver(this);
+        }
 
-    public void Update( float temperature,float humidity,float pressure )
-    {
-        this.temperature = temperature;
-        this.humidity = humidity;
-        Display();
+        public void Display( )
+        {
+            Console.WriteLine(
+                string.Format("Current conditions {0} F and humidity {1} % "
+                , temperature, humidity));
+        }
+
+        public void Update( float temp, float humidity, float pressure )
+        {
+            this.temperature = temp;
+            this.humidity = humidity;
+            this.pressure = pressure;
+            Display();
+        }
+
+      
+
+      
     }
 }
-

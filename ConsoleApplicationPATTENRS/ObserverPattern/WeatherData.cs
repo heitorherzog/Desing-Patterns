@@ -1,49 +1,55 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class WeatherData:Subject
+namespace Observer_Pattern
 {
-    private ArrayList observers;
-    private float temperature;
-    private float humidity;
-    private float pressure;
-
-    public WeatherData( )
+    public class WeatherData : Subject
     {
-        observers = new ArrayList();
-    }
+        private ArrayList observers;
+        private float temperature;
+        private float humidity;
+        private float pressure;
 
-    public void NotifyObservers( )
-    {
-        for(int i = 0;i < observers.Count;i++)
+        public WeatherData( )
         {
-            Observer observer = (Observer)observers[i];
-            observer.Update(temperature,humidity,pressure);
+            observers = new ArrayList();
         }
-    }
 
-    public void RegisterObserver( Observer o )
-    {
-        observers.Add(o);
-    }
+        public void NotifyObservers( )
+        {
+            for (int i = 0; i <  observers.Count; i++)
+            {
+                Observer o = (Observer)observers[i];
+                o.Update(temperature, humidity, pressure);
+            }
+        }
 
-    public void RemoveObserver( Observer o )
-    {
-        int i = observers.IndexOf(o);
-        if(i >= 0)
-            observers.Remove(i);
-    }
+        public void MeasurementsChanged()
+        {
+            NotifyObservers();
+        }
 
-    public void MeasurementsChanged( )
-    {
-        NotifyObservers();
-    }
+        public void SetMeasurements( float temp, float hum, float pressu )
+        {
+            temperature = temp;
+            humidity = hum;
+            pressure = pressu;
 
-    public void SetsurementsChange(float temperature,
-        float humidity, float pressure )
-    {
-        this.humidity = humidity;
-        this.temperature = temperature;
-        this.pressure = pressure;
-        MeasurementsChanged();
+            MeasurementsChanged();
+        }
+
+        public void RegisterObserver( Observer o )
+        {
+            observers.Add(o);
+        }
+
+        public void RemoveObserver( Observer o )
+        {
+            observers.Remove(observers.IndexOf(o));
+        }
     }
 }

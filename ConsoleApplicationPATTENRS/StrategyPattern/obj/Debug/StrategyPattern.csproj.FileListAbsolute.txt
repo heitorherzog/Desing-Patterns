@@ -7,3 +7,4 @@ C:\Users\Nusa pc\Documents\Visual Studio 2015\Projects\ConsoleApplication1\Conso
 C:\Users\Nusa pc\Documents\Visual Studio 2015\Projects\ConsoleApplicationPATTENRS\StrategyPattern\bin\Debug\ConsoleApplication1.exe.config
 C:\Users\Nusa pc\Documents\Visual Studio 2015\Projects\ConsoleApplicationPATTENRS\StrategyPattern\obj\Debug\ConsoleApplication1.exe
 C:\Users\Nusa pc\Documents\Visual Studio 2015\Projects\ConsoleApplicationPATTENRS\StrategyPattern\obj\Debug\ConsoleApplication1.pdb
+E:\Users\Heitor\Documents\projects\ConsoleApplicationPATTENRS\StrategyPattern\bin\Debug\ConsoleApplication1.exe.config

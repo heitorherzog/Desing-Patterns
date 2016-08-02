@@ -1,1 +1,7 @@
 C:\Users\Nusa pc\Documents\Visual Studio 2015\Projects\ConsoleApplicationPATTENRS\ObserverPattern\bin\Debug\Observer Pattern.exe.config
+E:\Users\Heitor\Documents\projects\ConsoleApplicationPATTENRS\ObserverPattern\bin\Debug\Observer Pattern.exe.config
+E:\Users\Heitor\Documents\projects\ConsoleApplicationPATTENRS\ObserverPattern\bin\Debug\Observer Pattern.exe
+E:\Users\Heitor\Documents\projects\ConsoleApplicationPATTENRS\ObserverPattern\bin\Debug\Observer Pattern.pdb
+E:\Users\Heitor\Documents\projects\ConsoleApplicationPATTENRS\ObserverPattern\obj\Debug\ObserverPattern.csprojResolveAssemblyReference.cache
+E:\Users\Heitor\Documents\projects\ConsoleApplicationPATTENRS\ObserverPattern\obj\Debug\Observer Pattern.exe
+E:\Users\Heitor\Documents\projects\ConsoleApplicationPATTENRS\ObserverPattern\obj\Debug\Observer Pattern.pdb
