@@ -33,5 +33,10 @@ namespace DuckStuff
             quackBehavior = qb;
         }
 
+        public void PerformBehavior( Action metodo)
+        {
+            metodo.Invoke();
+        }
+
     }
 }
