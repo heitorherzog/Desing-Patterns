@@ -13,14 +13,19 @@ namespace DecotatorPattern
             return e => { first(e); next(e); };
         }
 
-        public static Func<T,U> AndThen<T, U>( this Func<T,U> first,Func<T,U> next ) where U : IConvertible
+        public static Func<T,TReturn> AndThen<T, TReturn>( this Func<T,TReturn> first,Func<T,TReturn> next )
         {
             return ( x ) =>
             {
                 dynamic a = first(x);
-                dynamic b = next(x);
-                return a + b - x;
+                dynamic b = next(a);
+                return b;
             };
+        }
+
+        public static Func<T,TReturn2> Compose<T, TReturn1, TReturn2>( this Func<TReturn1,TReturn2> func1,Func<T,TReturn1> func2 )
+        {
+            return x => func1(func2(x));
         }
     }
 }

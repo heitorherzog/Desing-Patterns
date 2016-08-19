@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DecotatorPattern
 {
@@ -24,9 +26,18 @@ namespace DecotatorPattern
             //testando com funções
             Func<int,int> gift = value => value + 10;
             Func<int,int> taxes = value => value + 20;
+            Func<int,int> inter = value => value + 15;
 
-            Console.WriteLine(gift.AndThen<int,int>(taxes).Invoke(book.GetPrice()));
+            Func<int,int> times2 = e=>e * 2;
 
+            Func<int,int> squared = e=>e * e;
+
+            Console.WriteLine(  times2.Compose(squared).Invoke(4)   ); //32
+            Console.WriteLine(  times2.AndThen(squared).Invoke(4)    ); //64
+
+            // Console.WriteLine(gift.AndThen(taxes).Invoke(book.GetPrice()));
+            //  Console.WriteLine(gift.AndThen(taxes).AndThen(inter).Invoke(book.GetPrice()));
+            
             Console.Read();
         }
     }
