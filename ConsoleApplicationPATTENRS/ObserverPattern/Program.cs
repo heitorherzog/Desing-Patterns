@@ -15,7 +15,9 @@ namespace ObserverPattern
             w.SetMeasurements(80f,65f,30.4f);
             w.SetMeasurements(82f,70f,29.2f);
             w.SetMeasurements(80f,90f,39.2f);
-            
+
+            c.Display();
+
             Console.ReadLine();
           
         }

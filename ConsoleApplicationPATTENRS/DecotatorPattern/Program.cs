@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace DecotatorPattern
@@ -29,16 +30,20 @@ namespace DecotatorPattern
             Func<int,int> inter = value => value + 15;
 
             Func<int,int> times2 = e=>e * 2;
-
             Func<int,int> squared = e=>e * e;
 
-            Console.WriteLine(  times2.Compose(squared).Invoke(4)   ); //32
-            Console.WriteLine(  times2.AndThen(squared).Invoke(4)    ); //64
+            Console.WriteLine(times2.Compose(squared).Invoke(4)); //32
+            Console.WriteLine(times2.AndThen(squared).Invoke(4)); //64
 
-            // Console.WriteLine(gift.AndThen(taxes).Invoke(book.GetPrice()));
-            //  Console.WriteLine(gift.AndThen(taxes).AndThen(inter).Invoke(book.GetPrice()));
-            
-            Console.Read();
+            Console.WriteLine(gift.AndThen(taxes).Invoke(book.GetPrice()));
+            Console.WriteLine(gift.AndThen(taxes).AndThen(inter).Invoke(book.GetPrice()));
+
+            Console.WriteLine("\nTestando com arrays");
+            Func<int,int>[] blah = { times2, squared,taxes,inter,gift };
+            var retorno = blah.Aggregate(( x,y ) => x.AndThen(y)).Invoke(4);
+            Console.WriteLine(retorno);
+
+           Console.Read();
         }
     }
 }

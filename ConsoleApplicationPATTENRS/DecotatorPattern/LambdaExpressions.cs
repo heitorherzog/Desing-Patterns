@@ -13,19 +13,18 @@ namespace DecotatorPattern
             return e => { first(e); next(e); };
         }
 
-        public static Func<T,TReturn> AndThen<T, TReturn>( this Func<T,TReturn> first,Func<T,TReturn> next )
+        public static Func<T,TReturn2> AndThen<T, TReturn, TReturn2>( this Func<T,TReturn> first,Func<TReturn,TReturn2> next )
         {
-            return ( x ) =>
-            {
-                dynamic a = first(x);
-                dynamic b = next(a);
-                return b;
-            };
+            return x => next(first(x));
         }
 
         public static Func<T,TReturn2> Compose<T, TReturn1, TReturn2>( this Func<TReturn1,TReturn2> func1,Func<T,TReturn1> func2 )
         {
             return x => func1(func2(x));
         }
+
     }
+
+
+    
 }
